@@ -1,24 +1,28 @@
 import axios from "axios";
 
 
-
 async function getuserdetails() {
-  const response = await axios.get("https://fakerapi.it/api/v2/addresses?_quantity=1")
-  return response.data
+  try {
+    const response = await axios.get("http://localhost:3000/api/user");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user details:");
+  }
 }
+
 
 
 // async component 
 export default async function Home() {
 
   const userdetails = await getuserdetails();
-   const userdetailsfinal =userdetails['data']
-   console.log(userdetailsfinal[0])
+
 
   return (
    <div>
     hi there
-    {/* {userdetailsfinal} */}
+    {userdetails?.email}
+    {userdetails?.name}
    </div>
   );
 }
