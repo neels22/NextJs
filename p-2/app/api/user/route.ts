@@ -5,7 +5,7 @@ export function GET() {
 
     return Response.json({
         email:"nee@nae.com",
-        name:"neeeeel"
+        name:"nel"
     })
     
 }
