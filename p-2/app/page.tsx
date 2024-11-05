@@ -1,4 +1,26 @@
 import axios from "axios";
+import { NextRequest } from "next/server";
+
+import {PrismaClient} from "@prisma/client"
+import { emitWarning } from "process";
+
+const client = new PrismaClient()
+
+async function fetchdetails() {
+  
+
+  const user = await client.user.findFirst();
+
+  return {
+    email:user?.username
+    name:"neel"
+  }
+}
+
+
+
+
+
 
 
 async function getuserdetails() {
